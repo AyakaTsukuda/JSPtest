@@ -1,0 +1,20 @@
+<web-app xmlns="http://jakarta.ee/xml/ns/jakartaee" version="6.0">
+    <servlet>
+        <servlet-name>UserListServlet</servlet-name>
+        <servlet-class>org.example.controller.UserListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserListServlet</servlet-name>
+        <url-pattern>/userList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UserAddServlet</servlet-name>
+        <servlet-class>org.example.controller.UserAddServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserAddServlet</servlet-name>
+        <url-pattern>/userAdd</url-pattern>
+    </servlet-mapping>
+</web-app>
+
