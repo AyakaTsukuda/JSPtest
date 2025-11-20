@@ -30,11 +30,12 @@ public class UserDAO {
     }
 
     public void insert(User user) throws SQLException {
-        String sql = "INSERT INTO users(username,email) VALUES(?,?)";
+        String sql = "INSERT INTO users(username,password,email) VALUES(?,?,?)";
         try (Connection conn = DriverManager.getConnection(jdbcURL, jdbcUser, jdbcPass);
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, user.getUserName());
-            ps.setString(2, user.getEmail());
+            ps.setString(2, user.getPassword());
+            ps.setString(3, user.getEmail());
             ps.executeUpdate();
         }
     }
