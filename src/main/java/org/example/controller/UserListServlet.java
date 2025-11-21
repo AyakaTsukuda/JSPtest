@@ -18,6 +18,18 @@ public class UserListServlet extends HttpServlet {
             request.getRequestDispatcher("/userList.jsp").forward(request, response);
         } catch (SQLException e) { throw new ServletException(e); }
     }
+
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        String search = request.getParameter("search");
+
+        try {
+            List<User> users = dao.search(search);
+            request.setAttribute("users", users);
+            request.getRequestDispatcher("userList.jsp").forward(request, response);
+        } catch (SQLException e) { throw new ServletException(e); }
+    }
 }
 
 

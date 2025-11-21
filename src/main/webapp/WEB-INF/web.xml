@@ -7,7 +7,6 @@
         <servlet-name>UserListServlet</servlet-name>
         <url-pattern>/userList</url-pattern>
     </servlet-mapping>
-
     <servlet>
         <servlet-name>UserAddServlet</servlet-name>
         <servlet-class>org.example.controller.UserAddServlet</servlet-class>

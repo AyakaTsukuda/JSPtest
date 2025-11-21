@@ -39,4 +39,22 @@ public class UserDAO {
             ps.executeUpdate();
         }
     }
+
+    public List<User> search(String search) throws SQLException {
+        List<User> list = new ArrayList<>();
+        String sql = "SELECT * FROM users WHERE username LIKE ? OR email LIKE ?";
+
+        try (Connection conn = DriverManager.getConnection(jdbcURL, jdbcUser, jdbcPass);
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1,"%" + search + "%");
+            ps.setString(2,"%" + search + "%");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new User(rs.getInt("id"), rs.getString("username"),rs.getString("password"), rs.getString("email")));
+            }
+        }
+        return list;
+    }
+
+
 }
