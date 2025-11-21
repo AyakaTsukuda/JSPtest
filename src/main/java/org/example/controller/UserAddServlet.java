@@ -23,7 +23,7 @@ public class UserAddServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         try {
-            dao.insert(new User(0, password, userName, email));
+            dao.insert(new User(0, userName, email, password));
             response.sendRedirect("userList");
         } catch (SQLException e) { throw new ServletException(e); }
     }

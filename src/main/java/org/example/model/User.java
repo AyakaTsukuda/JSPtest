@@ -7,12 +7,12 @@ public class User {
     private String email;
 
     public User() {}
-    public User(int id, String userName, String password, String email) {
+    public User(int id, String userName, String email, String password) {
         this.id = id; this.userName = userName; this.password = password; this.email = email;
     }
 
     public int getId() { return id; }
     public String getUserName() { return userName; }
-    public String getPassword() { return password; }
     public String getEmail() { return email; }
+    public String getPassword() { return password; }
 }

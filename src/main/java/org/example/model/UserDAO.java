@@ -23,7 +23,7 @@ public class UserDAO {
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT * FROM users")) {
             while (rs.next()) {
-                list.add(new User(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getString("email")));
+                list.add(new User(rs.getInt("id"), rs.getString("username"), rs.getString("email"), rs.getString("password")));
             }
         }
         return list;
